@@ -1,0 +1,41 @@
+
+<!doctype html>
+<html>
+        <head>
+                <meta charset="utf-8" />
+                <title>Sentiment analysis demo - WEB</title>
+        </head>
+        <body>
+                <div id="wrapper">
+                        <header>
+                                <hgroup>
+                                        <h1>WEB</h1>
+                                </hgroup>
+                        </header>
+                        <article>
+                                <h1>Sentiment anlysis demo</h1>
+                                {if len(q) and not len(error)}
+                                <div id="result">
+                                        <p>Movie: "{$q}"</p>
+                                        <table>
+                                                <tbody>
+                                                        {for cl, text in output}
+                                                        <tr class="{$cl}">
+                                                                <th>{$cl}</th>
+                                                                <td>{$text}</td>
+                                                        </tr>
+                                                        {end}
+                                                </tbody>
+                                        </table>
+                                        <p>Classified {$msgs} messages in {$time_total} sec, {$msgs_per_sec} msgs per sec</p>
+                                </div>
+                              {end}
+                                <form action="/">
+                                        <fieldset>
+                                                <div id="text"><input name="q" /></div>
+                                        </fieldset>
+                                </form>
+                        </article>
+                </div>
+        </body>
+</html>
